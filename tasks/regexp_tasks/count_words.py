@@ -7,10 +7,8 @@ import re
 
 
 def count_words(some_text: str) -> int:
-    counter = re.finditer('[^ \W]?[A-Za-zА-Яа-я]+[^ \W]', text)
+    counter = re.finditer('[^ \W]?[A-Za-zА-Яа-я]+[^ \W]', some_text)
     result = list()
     for word in counter:
         result.append(word)
     return len(result)
-
-print(count_words('some fucking funny text lmao'))

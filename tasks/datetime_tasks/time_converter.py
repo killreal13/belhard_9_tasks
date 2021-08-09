@@ -6,3 +6,10 @@
 
 Функция должна возвращать время в новой временной зоне.
 """
+import datetime
+import pendulum
+
+
+def convert_date(timestamp, current_zone, new_zone):
+    new_timestamp = datetime.datetime.strptime(timestamp, '%Y.%m.%d %H:%M:%S').replace(tzinfo=pendulum.timezone(current_zone))
+    return pendulum.timezone(new_zone).convert(new_timestamp)
